@@ -5,6 +5,11 @@ extends: default
 font:
   catalog:
     merge: true
+    Georgia:
+      normal: georgia/Georgia-Regular-font.ttf 
+      bold: georgia/georgia-bold.ttf
+      italic: georgia/georgia-italic.ttf
+      bold_italic: georgia/Georgia-Bold-Italic-font.ttf
     Open Sans:
       normal: OpenSans/OpenSans/OpenSans-Regular.ttf 
       bold: OpenSans/OpenSans/OpenSans-Bold.ttf
@@ -15,6 +20,8 @@ font:
       bold: SourceCodePro/SourceCodePro-Bold.ttf
       italic: SourceCodePro/SourceCodePro-Italic.ttf
       bold_italic: SourceCodePro/SourceCodePro-BoldItalic.ttf
+    MDI:
+      normal: material-icons/MaterialIcons-Regular.ttf
     Bundled M+ 1mn:
       normal: GEM_FONTS_DIR/mplus1mn-regular-subset.ttf
       bold: GEM_FONTS_DIR/mplus1mn-bold-subset.ttf
@@ -30,13 +37,19 @@ font:
       bold: GEM_FONTS_DIR/notosans-bold-subset.ttf
       italic: GEM_FONTS_DIR/notosans-italic-subset.ttf
       bold_italic: GEM_FONTS_DIR/notosans-bold_italic-subset.ttf
-
+      
 base:
   font-color: 1d1d1d
-  font-family: Open Sans
+  font-family: Georgia
   font-size: 10
   line-height: 1.2
 
+heading:
+  font-color: #880011     
+
+
+fallbacks:
+  - Noto Sans
 # see definitions here: https://github.com/prawnpdf/pdf-core/blob/0.6.0/lib/pdf/core/page_geometry.rb#L16-L68
 # technical books recommendation is 8.5x11in
 # see leanpub article on this: http://help.leanpub.com/en/articles/2794627-why-does-each-ebook-size-only-correspond-to-a-subset-of-the-print-ready-pdf-export-sizes-also-how-can-i-make-a-7-x-10-or-a-7-5-x-9-25-print-ready-pdf
@@ -58,13 +71,19 @@ code:
     family: Source Code Pro
     size: 10
 
+
+ 
+
+
 codespan:
   font-family: Source Code Pro
   font-color: #232229
-  background-color: #eedffd
-  border-radius: 3
-  border-offset: 2
+  # background-color: #eedffd
+  # border-radius: 3
+  # border-offset: 2
+  
 
+# ICONS (RESPECTED WHEN USING icons=font)
 admonition:
   font-size: $base-font-size
   text-align: left
@@ -81,42 +100,101 @@ admonition:
     warning:
       font-size: 0
       font-color: #ffffff
+    tip: 
+      font-size: 0
+      font-color: #ffffff
+    note:
+      font-size: 0
+      font-color: #ffffff
+    important:
+      font-size: 0
+      font-color: #ffffff
+    caution:
+      font-size: 0
+      font-color: #ffffff
   icon:
+    tip:
+      name: fas-lightbulb
+      stroke-color: #5CB85C
+      size: 14
+    note:
+      name: fas-info-circle
+      stroke-color: #5BC0DE
+      size: 14
+    important:
+      name: fas-exclamation-circle
+      stroke-color: #9C27B0
+      size: 14
+    caution:
+      name: fas-radiation
+      stroke-color: #FF9800
+      size: 14
     warning:
-      size: 0
-      padding: 0
-      # icon name specified as:
-      # <icon set>-<icon name>
-      # all prawn icon sets are supported, see: https://github.com/jessedoyle/prawn-icon/tree/master
-      name: fas-fire
-      stroke-color: #000000
-      # or, instead of an icon you can provide an image:
-      # image: bulb.png
+      name: fas-bomb
+      stroke-color: #D9534F
+      size: 14
 
+# TIP (Green)
 admonition_tip:
-  background-color: #ede8fa
-  border-color: #872de6
+  font_color: #3C763D
+  background-color: #DFF0D8
+  border-color: #5CB85C
+  border-style: dashed
+  border-width: 0.75
+  border-radius: 4
   font-size: $base-font-size
   text-align: left
-  # column-rule-color: #872de6
-  # column-rule-width: 0.5
-  border-radius: 3
-  border-style: dashed
-  font-kerning: none
   padding: 0.3cm
 
+# NOTE (Blue)
+admonition_note:
+  font_color: #31708F
+  background-color: #E3F2FD
+  border-color: #5BC0DE
+  border-style: dashed
+  border-width: 0.75
+  border-radius: 4
+  font-size: $base-font-size
+  text-align: left
+  padding: 0.3cm
+
+# IMPORTANT (Purple)
+admonition_important:
+  font_color: #4A148C
+  background-color: #F3E5F5
+  border-color: #9C27B0
+  border-style: dashed
+  border-width: 0.75
+  border-radius: 4
+  font-size: $base-font-size
+  text-align: left
+  padding: 0.3cm
+
+# CAUTION (Orange)
+admonition_caution:
+  font_color: #8A6D3B
+  background-color: #FCF8E3
+  border-color: #FF9800
+  border-style: dashed
+  border-width: 0.75
+  border-radius: 4
+  font-size: $base-font-size
+  text-align: left
+  padding: 0.3cm
+
+# WARNING (Red)
 admonition_warning:
-  background-color: #ede8fa
-  border-color: #872de6
+  font_color: #A94442
+  background-color: #F2DEDE
+  border-color: #D9534F
+  border-style: dashed
+  border-width: 0.75
+  border-radius: 4
   font-size: $base-font-size
   text-align: left
-  column-rule-color: #872de6
-  column-rule-width: 3
-  border-radius: 3
-  border-style: dashed
-  font-kerning: none
   padding: 0.3cm
 
+# LISTS
 list:
   text-align: left
 
@@ -143,11 +221,16 @@ table:
     size: 12
 
 image:
-  width: 100%
+  width: 60%
   align: center
   caption:
     end: bottom
     text-align: center
+  border-color: "#CCCCCC"
+  border-width: 2
+  border-radius: 5
+  border-fit: content
+  border-style: solid
 
 link:
   font-color: #002FA7
@@ -166,3 +249,5 @@ footer:
   verso:
     left:
       content: '*{page-number}* | {chapter-title}'
+
+
