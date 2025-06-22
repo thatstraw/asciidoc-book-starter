@@ -3,7 +3,6 @@
 :author: Mike Willson
 :creator: {author}
 :copyright: 2023 Mike Willson
-:email: mike@lirantal.com
 :revnumber: v1.0
 :revdate: 01.01.2022
 :revremark: First draft
@@ -13,7 +12,7 @@
 :sectnums:
 :sectlinks:
 :toc: left
-:toclevels: 4
+:toclevels: 3
 :toc-title: Table of Contents
 :description: HTML meta tag content for description
 :keywords: HTML meta tag content for keywords
@@ -27,7 +26,7 @@
 :source-highlighter: pygments
 :pygments-style: vs
 :pygments-linenums-mode: table
-:source-language: javascript
+:source-language: bash
 
 The following is a bunch of text:
 
