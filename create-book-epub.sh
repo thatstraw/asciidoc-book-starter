@@ -9,4 +9,5 @@ BOOK_BUILD_DIR=build
 
 docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor:1.63 asciidoctor-epub3 \
     -D $BOOK_BUILD_DIR \
+    --trace \
     $BOOK_SOURCE_DIR/index.adoc

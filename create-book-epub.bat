@@ -6,4 +6,4 @@ SET BOOK_SOURCE_DIR=book
 REM The directory where the book's generated output files will be created
 SET BOOK_BUILD_DIR=build
 
-docker run --rm -v "%CD%":/documents/ asciidoctor/docker-asciidoctor asciidoctor-epub3 -D %BOOK_BUILD_DIR% %BOOK_SOURCE_DIR%/index.adoc
+docker run --rm -v "%CD%":/documents/ asciidoctor/docker-asciidoctor asciidoctor-epub3 -D %BOOK_BUILD_DIR% --trace %BOOK_SOURCE_DIR%/index.adoc

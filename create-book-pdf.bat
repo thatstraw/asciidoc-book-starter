@@ -5,4 +5,4 @@ SET BOOK_SOURCE_DIR=book
 REM The directory where the book's generated output files will be created
 SET BOOK_BUILD_DIR=build
 
-docker run --rm -v "%CD%":/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf -D %BOOK_BUILD_DIR% %BOOK_SOURCE_DIR%/index.adoc
+docker run --rm -v "%CD%":/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf -D %BOOK_BUILD_DIR% -r /documents/book/extensions/pdf-converter-admonition-theme-per-type.rb --trace /documents/book/index.adoc
